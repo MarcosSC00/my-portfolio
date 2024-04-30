@@ -1,0 +1,654 @@
+/*########################## GERAL ##################################*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  font-size: 62.5%;
+  --nav-heigth: 7.2rem;
+}
+body,
+html {
+  color: white;
+  width: 100%;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+body {
+  background-image: url(/img/meu-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+h1 {
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 130%;
+}
+h2 {
+  font-size: 4rem;
+  line-height: 120%;
+}
+a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+p {
+  text-align: justify;
+  line-height: 150%;
+  font-size: 1.6rem;
+}
+img {
+  width: 100%;
+}
+.wrapper {
+  width: min(120rem, 100%);
+  padding-inline: 10rem;
+  margin-inline: auto;
+}
+
+a.btn {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  font-size: 1.4rem;
+  padding: 1rem 3.2rem;
+  background-color: transparent;
+  border: 2px solid #1d4ed890;
+  border-radius: 4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 20px #1d4ed8;
+}
+i {
+  font-weight: normal;
+}
+a.btn:hover {
+  color: #fff;
+  background-color: #1d4ed8;
+  transform: translateY(-7px);
+}
+section {
+  margin-block: 10rem;
+  padding-top: var(--nav-heigth);
+}
+/*########################## NAVIGATION ############################*/
+#navigation #links-menu,
+#navigation a.btn-atalho {
+  display: none;
+}
+#navigation .wrapper .menu ul#atalhos li:nth-child(1),
+#navigation .wrapper .menu ul#atalhos li:nth-child(2) {
+  margin-right: 3.2rem;
+}
+nav#navigation {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--nav-heigth);
+  z-index: 100;
+  transition: all 0.7s ease;
+}
+#navigation .wrapper {
+  display: flex;
+  padding-block: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+@keyframes topToDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--nav-heigth);
+  }
+}
+
+nav#navigation.scroll {
+  background: linear-gradient(to top, #424242 10%, #424242 70%);
+  animation: topToDown 1s ease-out;
+}
+#navigation .wrapper .menu ul {
+  display: flex;
+}
+
+#navigation .wrapper .hamburguer-menu {
+  display: none;
+  height: 3rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+#navigation .wrapper .hamburguer-menu .barra {
+  width: 2.5rem;
+  height: 2px;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+#navigation.scroll .wrapper .hamburguer-menu .barra {
+  background-color: #ccc;
+}
+.change #b1 {
+  transform: rotate(-45deg) translate(-6px, 5px);
+}
+.change #b2 {
+  transform: rotate(45deg);
+}
+.change #b3 {
+  opacity: 0;
+  visibility: hidden;
+}
+#navigation .wrapper #logo {
+  width: 5rem;
+  height: 5rem;
+  z-index: 100;
+}
+#navigation .wrapper #logo img {
+  width: 100%;
+  border-radius: 100%;
+}
+.menu {
+  display: flex;
+  gap: 7rem;
+  align-items: center;
+}
+.menu ul#atalhos li a:not(.btn)::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  display: block;
+  transition: width 0.3s;
+}
+.menu ul#atalhos li a.underlineSection::after {
+  width: 100%;
+  background-color: #fff;
+}
+.menu ul#atalhos li a:hover::after {
+  width: 100%;
+  background-color: #fff;
+}
+.menu ul#atalhos li a.btn:hover::after {
+  width: 0;
+}
+#navigation a.btn {
+  padding: 1rem 2.4rem;
+}
+/*############# menu-expanded ##############*/
+
+body.menu-expanded > :not(nav) {
+  display: none;
+}
+body.menu-expanded #navigation .menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #323232;
+  padding-bottom: 30rem;
+  padding-top: calc(var(--nav-heigth) + 7.2rem);
+}
+body.menu-expanded #navigation .menu ul#atalhos {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  padding-bottom: 8rem;
+  text-align: center;
+  margin-inline: auto;
+}
+body.menu-expanded #navigation .menu ul#atalhos li a {
+  font-size: 2.4rem;
+}
+body.menu-expanded #navigation #atalhos a.underlineSection::after {
+  width: 0;
+}
+body.menu-expanded #navigation #atalhos a:hover::after {
+  width: 100%;
+}
+/*########################## SOBRE MIM ############################*/
+#sobre-mim header {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+#sobre-mim header .img-dev {
+  position: relative;
+  max-width: 45rem;
+  background-color: #ccc;
+  border-radius: 100%;
+}
+#sobre-mim header .img-dev::before {
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  inset: -5px;
+  background: #1d4ed8;
+  z-index: -200;
+  transition: 0.3s;
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  50% {
+    filter: hue-rotate(90deg);
+  }
+}
+
+#sobre-mim header .container {
+  display: flex;
+  flex-direction: column;
+}
+#sobre-mim header p {
+  margin: 2.3rem 0 3.2rem 0;
+}
+#sobre-mim header a.btn {
+  width: fit-content;
+}
+#sobre-mim .wrapper h1 span {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px white;
+}
+.efeito {
+  width: 10%;
+  position: absolute;
+  z-index: -100;
+  box-shadow: 0 0 400px 60px #1d4ed8;
+}
+#typing-text {
+  margin-right: 2px solid #fff;
+  animation: blink 0.75s infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: #fff;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+/*########################## MEUS PROJETOS ############################*/
+#projetos header {
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+.content-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 5rem;
+}
+.card {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: #323232;
+  justify-content: space-between;
+}
+.card:hover {
+  box-shadow: 5px 5px 10px #00000090;
+  transform: scale(1.07);
+}
+.card input {
+  position: relative;
+}
+.card .card-descricao {
+  margin-top: -3rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+.text-desc {
+  height: 274px;
+  overflow: hidden;
+}
+.text-expanded {
+  height: auto;
+  max-height: 500px;
+}
+.toogleButton {
+  display: block;
+}
+. .collapsed {
+  height: 274px;
+}
+.expanded {
+  height: auto;
+  max-height: 500px;
+}
+
+.card a.btn {
+  padding-block: 1rem;
+  text-align: center;
+  justify-content: center;
+  box-shadow: none;
+}
+.card .skills {
+  padding-block: 1rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px #222;
+}
+.card .skills svg {
+  box-shadow: 0 3px 10px #00000080;
+  animation: rotate-icons 3s infinite linear;
+}
+@keyframes rotate-icons {
+  to {
+    transform: rotateY(0deg);
+  }
+  from {
+    transform: rotateY(359deg);
+  }
+}
+.card p {
+  padding-top: 1rem;
+}
+
+.btns-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.slides {
+  overflow: hidden;
+}
+.slide-list {
+  display: grid;
+  position: relative;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  width: 300%;
+  transition: left 0.5s ease;
+}
+.slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.slide img {
+  border-radius: 1rem;
+  height: 250px;
+}
+.alter-slides {
+  display: flex;
+  position: relative;
+  top: -50%;
+  justify-content: space-between;
+}
+.alter-slides img {
+  width: 5rem;
+  border-radius: 5rem;
+  opacity: 0.6;
+}
+.alter-slides img:hover {
+  background-color: #a09898;
+}
+
+/*####################### CONTATO #################*/
+#contato .content-contato {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#contato .img-contato {
+  max-width: 40rem;
+}
+#contato .endereco {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+#contato .endereco .link:hover {
+  text-decoration: underline;
+}
+#contato header {
+  margin-bottom: 4rem;
+}
+#contato .btn {
+  width: fit-content;
+  padding-block: 1rem;
+  margin-top: 1.7rem;
+}
+/*################### FOOTER #######################*/
+footer {
+  background-color: #323232;
+}
+footer .wrapper {
+  padding-block: 5rem;
+}
+footer .content-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .content-footer .copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+footer .content-footer ul {
+  display: flex;
+  flex-direction: row;
+  gap: 3.2rem;
+}
+footer .content-footer ul li:hover {
+  transform: scale(1.2);
+}
+footer .content-footer a {
+  font-size: 3rem;
+}
+footer .content-footer a:hover i {
+  color: #1d4ed8;
+}
+body.menu-expanded #links-menu a:hover i {
+  color: #1d4ed8;
+  transition: 0.3s;
+}
+
+a.backToTop {
+  color: #1d4ed8;
+  position: fixed;
+  max-width: 10rem;
+  padding: 1rem 1.5rem;
+  border: 2px solid #1d4ed8;
+  border-radius: 100%;
+  bottom: 4rem;
+  right: 2rem;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 400ms;
+  background-color: #323232;
+}
+
+a.backToTop.show {
+  visibility: visible;
+  transform: translateY(0);
+}
+a.backToTop.show:hover {
+  color: #323232;
+  background-color: #1d4ed8;
+}
+
+/*###################### Responsividade ################*/
+@media screen and (min-width: 250px) and (max-width: 500px) {
+  /*############### GERAL ###################*/
+  .wrapper {
+    width: 100%;
+    padding-inline: 2.4rem;
+  }
+  h1 {
+    font-size: 3.4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+
+  /*############## NAVIGATION ############*/
+  #navigation .menu,
+  #navigation a.btn {
+    display: none;
+  }
+  body.menu-expanded #navigation .menu,
+  #navigation .wrapper .hamburguer-menu,
+  body.menu-expanded #navigation .menu #links-menu,
+  #navigation a.btn-atalho {
+    display: flex;
+  }
+  body.menu-expanded #navigation .wrapper .menu ul#atalhos li {
+    margin: 0;
+  }
+  body.menu-expanded #navigation .wrapper .menu ul#links-menu li a {
+    font-size: 3rem;
+  }
+  body.menu-expanded #navigation .wrapper .menu ul#links-menu {
+    display: flex;
+    gap: 3.2rem;
+  }
+  body.menu-expanded #navigation .menu ul#atalhos > :not(.btn) {
+    width: fit-content;
+    align-self: center;
+  }
+  /*############## SOBRE-MIM ################*/
+  #sobre-mim header {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 3.3rem;
+  }
+  /*############ PROJETOS #####################*/
+  #projetos .content-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #projetos header {
+    text-align: center;
+  }
+  #projetos .card {
+    max-width: 30rem;
+  }
+  #projetos .alter-slides {
+    top: -15rem;
+  }
+  /*################### CONTATO #################*/
+  #contato .content-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+  #contato .texts-contato {
+    align-self: flex-start;
+  }
+  /*###################### FOOTER #################*/
+  footer .content-footer {
+    flex-direction: column;
+    align-items: start;
+  }
+  footer .content-footer .copyright {
+    margin-bottom: 3.2rem;
+  }
+  /*#################*/
+  a.backToTop {
+    right: 1rem;
+    bottom: 2rem;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 800px) {
+  body.menu-expanded a.btn {
+    font-size: 2rem;
+  }
+  .wrapper {
+    width: 100%;
+    padding-inline: 2.4rem;
+  }
+  /*############################# NAVIGATION ##################*/
+
+  #navigation .menu,
+  #navigation a.btn {
+    display: none;
+  }
+  body.menu-expanded #navigation .menu,
+  #navigation .wrapper .hamburguer-menu,
+  body.menu-expanded #navigation .menu #links-menu,
+  #navigation a.btn-atalho {
+    display: flex;
+  }
+  body.menu-expanded #navigation .menu ul#atalhos > :not(.btn) {
+    width: fit-content;
+    margin-inline: auto;
+  }
+  body.menu-expanded #navigation .wrapper .menu ul#links-menu li a {
+    font-size: 3rem;
+  }
+  body.menu-expanded #navigation .wrapper .menu ul#links-menu {
+    display: flex;
+    gap: 3.2rem;
+  }
+  body.menu-expanded #navigation .menu ul#atalhos {
+    padding-bottom: 3rem;
+  }
+  /*############################### SOBRE-MIM ####################*/
+
+  #sobre-mim header {
+    flex-direction: column-reverse;
+    gap: 3.2rem;
+    text-align: center;
+  }
+  /*####################### PROJETOS ##############################*/
+  #projetos .content-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /*############### contato #########*/
+  #contato .content-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+  #contato .texts-contato {
+    align-self: flex-start;
+  }
+  /*######################################################*/
+  a.backToTop {
+    right: 1rem;
+    bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+  .wrapper {
+    padding-inline: 2.4rem;
+  }
+  #sobre-mim header {
+    flex-direction: column-reverse;
+    gap: 0;
+    text-align: center;
+  }
+  #projetos .card {
+    width: 30rem;
+  }
+}
