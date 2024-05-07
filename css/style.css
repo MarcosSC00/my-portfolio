@@ -222,13 +222,14 @@ body.menu-expanded #navigation #atalhos a:hover::after {
 }
 /*########################## SOBRE MIM ############################*/
 #sobre-mim header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
   align-items: center;
   gap: 5rem;
 }
 #sobre-mim header .img-dev {
   position: relative;
-  max-width: 45rem;
+  max-width: 35rem;
   background-color: #ccc;
   border-radius: 100%;
 }
@@ -533,6 +534,7 @@ a.backToTop.show:hover {
   }
   /*############## SOBRE-MIM ################*/
   #sobre-mim header {
+    display: flex;
     flex-direction: column-reverse;
     text-align: center;
     gap: 3.3rem;
@@ -612,6 +614,7 @@ a.backToTop.show:hover {
   /*############################### SOBRE-MIM ####################*/
 
   #sobre-mim header {
+    display: flex;
     flex-direction: column-reverse;
     gap: 3.2rem;
     text-align: center;
@@ -644,6 +647,7 @@ a.backToTop.show:hover {
     padding-inline: 2.4rem;
   }
   #sobre-mim header {
+    display: flex;
     flex-direction: column-reverse;
     gap: 0;
     text-align: center;
